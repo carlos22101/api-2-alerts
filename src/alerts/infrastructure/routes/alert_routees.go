@@ -4,9 +4,9 @@ import (
     "database/sql"
     "log"
     "net/http"
-    "alerts/src/application"
-    "alerts/src/infrastructure/controllers"
-    repo "alerts/src/infrastructure/repositories"
+    "alerts/src/alerts/application"
+    "alerts/src/alerts/infrastructure/controllers"
+    repo "alerts/src/alerts/infrastructure/repositories"
 
     "github.com/gorilla/mux"
 )

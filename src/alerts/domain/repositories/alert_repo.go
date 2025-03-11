@@ -2,7 +2,7 @@ package repositories
 
 import (
 	"context"
-	"alerts/src/domain/entities"
+	"alerts/src/alerts/domain/entities"
 )
 
 type AlertRepository interface {

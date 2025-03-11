@@ -2,8 +2,8 @@ package applications
 
 import (
 	"context"
-	"alerts/src/domain/entities"
-	"alerts/src/domain/repositories"
+	"alerts/src/alerts/domain/entities"
+	"alerts/src/alerts/domain/repositories"
 )
 
 type AlertUseCase struct {

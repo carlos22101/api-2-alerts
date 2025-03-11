@@ -9,8 +9,8 @@ import (
     "github.com/gorilla/mux"
 
     "alerts/src/core"
-    "alerts/src/infrastructure/routes"
-    "alerts/src/infrastructure/consumer"
+    "alerts/src/alerts/infrastructure/routes"
+    "alerts/src/alerts/infrastructure/consumer"
 )
 
 func main() {

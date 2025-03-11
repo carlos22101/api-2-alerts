@@ -4,7 +4,7 @@ import (
     "context"
     "database/sql"
     "time"
-    "alerts/src/domain/entities"
+    "alerts/src/alerts/domain/entities"
 )
 
 type AlertMySQLRepo struct {

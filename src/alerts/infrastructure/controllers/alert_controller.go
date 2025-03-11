@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
-	"alerts/src/application"
+	"alerts/src/alerts/application"
 )
 
 type AlertController struct {
