@@ -30,14 +30,15 @@ func ConsumeMessages(ch *amqp.Channel, dbConn core.DBWrapperInterface) {
     log.Println("Esperando mensajes en la cola:", queueName)
     for msg := range msgs {
         log.Println("Mensaje recibido:", string(msg.Body))
-        // Procesar el mensaje: convertirlo en alerta y guardarlo en la BD
+        //Procesar el mensaje: convertirlo en alerta y guardarlo en la BD
         if err := processMessage(msg.Body, dbConn); err != nil {
-            log.Println("Error procesando mensaje:", err)
+        log.Println("Error procesando mensaje:", err)
         }
     }
 }
 
-// processMessage deserializa el mensaje y guarda la alerta en la BD
+
+ //processMessage deserializa el mensaje y guarda la alerta en la BD
 func processMessage(body []byte, dbConn core.DBWrapperInterface) error {
     var mov struct {
         ID        int    `json:"id"`
@@ -56,6 +57,6 @@ func processMessage(body []byte, dbConn core.DBWrapperInterface) error {
     defer cancel()
 
     query := `INSERT INTO alerts (sensor_id, event_timestamp, description, status) VALUES (?, ?, ?, ?)`
-    _, err := dbConn.GetDB().ExecContext(ctx, query, mov.SensorID, mov.Timestamp, description, mov.Status) // Usar el campo status del mensaje
+    _, err := dbConn.GetDB().ExecContext(ctx, query, mov.SensorID, mov.Timestamp, description, mov.Status) 
     return err
 }

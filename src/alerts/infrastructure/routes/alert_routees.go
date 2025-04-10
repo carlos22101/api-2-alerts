@@ -12,7 +12,6 @@ import (
 )
 
 func SetupAlertRoutes(router *mux.Router, dbWrapper interface{}) {
-    // Convertir dbWrapper a *sql.DB
     db, ok := dbWrapper.(*sql.DB)
     if !ok {
         log.Fatal("dbWrapper no es *sql.DB")

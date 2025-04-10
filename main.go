@@ -26,14 +26,14 @@ func main() {
     }
     defer db.GetDB().Close()
 
-    // Conexión a RabbitMQ
+
     rabbitChan, err := core.ConnectRabbit()
     if err != nil {
         log.Fatal("Error conectando a RabbitMQ:", err)
     }
     defer rabbitChan.Close()
 
-    // Iniciar el consumidor en una goroutine
+
     go consumer.ConsumeMessages(rabbitChan, db)
 
     // Configurar rutas de la API (para el short polling del Frontend)
@@ -45,11 +45,9 @@ func main() {
         port = "8081"
     }
     log.Println("Notifier API corriendo en el puerto:", port)
-    // Envolver el router con el middleware CORS
     log.Fatal(http.ListenAndServe(":"+port, corsMiddleware(router)))
 }
 
-// corsMiddleware añade los encabezados necesarios para permitir CORS.
 func corsMiddleware(next http.Handler) http.Handler {
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
         w.Header().Set("Access-Control-Allow-Origin", "*") // O especifica un origen en particular

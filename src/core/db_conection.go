@@ -8,12 +8,12 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-// DBWrapperInterface permite abstraer la conexión a la BD.
+
 type DBWrapperInterface interface {
 	GetDB() *sql.DB
 }
 
-// DBWrapper es un envoltorio para la conexión a la base de datos.
+
 type DBWrapper struct {
 	DB *sql.DB
 }

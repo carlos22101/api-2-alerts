@@ -15,7 +15,7 @@ func NewAlertController(uc *applications.AlertUseCase) *AlertController {
 	return &AlertController{UseCase: uc}
 }
 
-// GET /alerts
+
 func (c *AlertController) GetAllAlertsHandler(w http.ResponseWriter, r *http.Request) {
 	ctx := context.Background()
 	alerts, err := c.UseCase.GetAllAlerts(ctx)
